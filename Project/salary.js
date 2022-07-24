@@ -40,8 +40,8 @@ let userChoice = choice.question('Digite o numero correspondente a sua escolha: 
 var numberChoice = Number(userChoice);
 let label_salary = 'Salario mínimo:';
 let label_year1 = 'Ano:';
-let label_inflation = '';
-let label_year2 = '';
+let label_inflation = 'Inflação IPCA:';
+let label_year2 = 'Ano:';
 
 
 function choices(number) {
@@ -57,7 +57,8 @@ function choices(number) {
         for(let propertyInfla of inflationCollection) {
             let sayInflation = propertyInfla.inflation;
             let sayYearInfla = propertyInfla.year;
-            console.log("")
+            console.log("\n\n"+label_year2.padEnd(25,'.')+sayYearInfla);
+            console.log(label_inflation.padEnd(25,'.')+sayInflation);
         }
     }
     return number
