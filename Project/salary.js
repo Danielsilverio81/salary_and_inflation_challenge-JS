@@ -44,22 +44,28 @@ let label_inflation = 'Inflação IPCA:';
 let label_year2 = 'Ano:';
 
 
+for(let propertySalary of salaryCollection) {
+    var saySalary = propertySalary.salary;
+    var sayYear =  propertySalary.year;
+}
+for(let propertyInfla of inflationCollection) {
+    var sayInflation = propertyInfla.inflation;
+    var sayYearInfla = propertyInfla.year;
+}
+
 function choices(number) {
     number = numberChoice;
     if(number == 1){
-        for(let propertySalary of salaryCollection) {
-            let saySalary = propertySalary.salary;
-            let sayYear =  propertySalary.year;
-            console.log("\n\n"+label_year1.padEnd(25, '.')+sayYear);
-            console.log(label_salary.padEnd(25, '.')+"R$"+saySalary.toFixed(2).replace(".",","));
-        }
+        console.log("\n\n"+label_year1.padEnd(25, '.')+sayYear);
+        console.log(label_salary.padEnd(25, '.')+"R$"+saySalary.toFixed(2).replace(".",","));
     } else if(number == 2) {
-        for(let propertyInfla of inflationCollection) {
-            let sayInflation = propertyInfla.inflation;
-            let sayYearInfla = propertyInfla.year;
-            console.log("\n\n"+label_year2.padEnd(25,'.')+sayYearInfla);
-            console.log(label_inflation.padEnd(25,'.')+sayInflation.toFixed(2).replace(".",",")+"%");
-        }
+        console.log("\n\n"+label_year2.padEnd(25,'.')+sayYearInfla);
+        console.log(label_inflation.padEnd(25,'.')+sayInflation.toFixed(2).replace(".",",")+"%");
+    } else if(number == 3) {
+        console.log("\n\n"+label_year1.padEnd(25, '.')+sayYear);
+        console.log(label_salary.padEnd(25, '.')+"R$"+saySalary.toFixed(2).replace(".",","));
+        console.log("Crescimento salarial:")
+        console.log(label_inflation.padEnd(25,'.')+sayInflation.toFixed(2).replace(".",",")+"%");
     }
     return number
 }
