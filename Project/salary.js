@@ -38,34 +38,31 @@ console.log("3- Comparação entre o percentual de aumento salarial e inflação
 let userChoice = choice.question('Digite o numero correspondente a sua escolha: ');
 
 var numberChoice = Number(userChoice);
+let label_salaryGrowth = 'Crescimento Salarial';
 let label_salary = 'Salario mínimo:';
-let label_year1 = 'Ano:';
+let label_year = 'Ano:';
 let label_inflation = 'Inflação IPCA:';
-let label_year2 = 'Ano:';
 
 
-for(let propertySalary of salaryCollection) {
-    var saySalary = propertySalary.salary;
-    var sayYear =  propertySalary.year;
-}
-for(let propertyInfla of inflationCollection) {
-    var sayInflation = propertyInfla.inflation;
-    var sayYearInfla = propertyInfla.year;
-}
+
 
 function choices(number) {
     number = numberChoice;
-    if(number == 1){
-        console.log("\n\n"+label_year1.padEnd(25, '.')+sayYear);
-        console.log(label_salary.padEnd(25, '.')+"R$"+saySalary.toFixed(2).replace(".",","));
-    } else if(number == 2) {
-        console.log("\n\n"+label_year2.padEnd(25,'.')+sayYearInfla);
-        console.log(label_inflation.padEnd(25,'.')+sayInflation.toFixed(2).replace(".",",")+"%");
-    } else if(number == 3) {
-        console.log("\n\n"+label_year1.padEnd(25, '.')+sayYear);
-        console.log(label_salary.padEnd(25, '.')+"R$"+saySalary.toFixed(2).replace(".",","));
-        console.log("Crescimento salarial:")
-        console.log(label_inflation.padEnd(25,'.')+sayInflation.toFixed(2).replace(".",",")+"%");
+    switch(number) {
+        case 1:
+            for(let count = 0; count <= salaryCollection.length-1; count++) {
+                let sayYear1 = salaryCollection[count].year;
+                let saySalary = salaryCollection[count].salary;
+                console.log("\n\n"+label_year.padEnd(25, '.')+sayYear1);
+                console.log(label_salary.padEnd(25, '.')+"R$"+saySalary.toFixed(2).replace(".",","));
+            }
+        case 2:
+            for(let count = 0; count <= inflationCollection.length-1; count++) {
+                let sayYear2 = inflationCollection[count].year;
+                let sayInflation = inflationCollection[count].inflation;
+                console.log("\n\n"+label_year.padEnd(25, '.')+sayYear2);
+                console.log(label_inflation.padEnd(25,'.')+sayInflation.toFixed(2).replace(".",",")+"%");
+            }
     }
     return number
 }
