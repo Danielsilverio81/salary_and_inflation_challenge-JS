@@ -30,24 +30,34 @@ const inflationCollection = [
 
 console.log("App Salario x Inflação");
 
-console.log("Escolha uma das alternativas!!!")
+console.log("Escolha uma das alternativas!!!\n\n")
 console.log("1- Listar salários mínimos de 2010 a 2020");
 console.log("2- Listar o índice IPCA (inflação) de 2010 a 2020");
-console.log("3- Comparação entre o percentual de aumento salarial e inflação(IPCA)");
+console.log("3- Comparação entre o percentual de aumento salarial e inflação(IPCA)\n");
 
-let userChoice = choice.question('Digite o numero correspondente a sua escolha:');
+let userChoice = choice.question('Digite o numero correspondente a sua escolha: ');
 
 var numberChoice = Number(userChoice);
+let label_salary = 'Salario mínimo:';
+let label_year1 = 'Ano:';
+let label_inflation = '';
+let label_year2 = '';
+
 
 function choices(number) {
     number = numberChoice;
     if(number == 1){
-        for(let salarys of salaryCollection) {
-            console.log(salarys.salary)
+        for(let propertySalary of salaryCollection) {
+            let saySalary = propertySalary.salary;
+            let sayYear =  propertySalary.year;
+            console.log("\n\n"+label_year1.padEnd(25, '.')+sayYear)
+            console.log(label_salary.padEnd(25, '.')+saySalary)
         }
     } else if(number == 2) {
-        for(let inflations of inflationCollection) {
-            console.log(inflations.inflation)
+        for(let propertyInfla of inflationCollection) {
+            let sayInflation = propertyInfla.inflation;
+            let sayYearInfla = propertyInfla.year;
+            console.log("")
         }
     }
     return number
