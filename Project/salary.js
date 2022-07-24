@@ -50,8 +50,8 @@ function choices(number) {
         for(let propertySalary of salaryCollection) {
             let saySalary = propertySalary.salary;
             let sayYear =  propertySalary.year;
-            console.log("\n\n"+label_year1.padEnd(25, '.')+sayYear)
-            console.log(label_salary.padEnd(25, '.')+saySalary)
+            console.log("\n\n"+label_year1.padEnd(25, '.')+sayYear);
+            console.log(label_salary.padEnd(25, '.')+"R$"+saySalary.toFixed(2).replace(".",","));
         }
     } else if(number == 2) {
         for(let propertyInfla of inflationCollection) {
