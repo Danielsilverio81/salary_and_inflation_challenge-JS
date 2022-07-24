@@ -28,12 +28,12 @@ const inflationCollection = [
     {inflation:4.52,       year:2020}
 ];
 
-console.log("App Salario x Inflação");
+console.log("App Salario x Inflação\n");
 
-console.log("Escolha uma das alternativas!!!\n\n")
-console.log("1- Listar salários mínimos de 2010 a 2020");
-console.log("2- Listar o índice IPCA (inflação) de 2010 a 2020");
-console.log("3- Comparação entre o percentual de aumento salarial e inflação(IPCA)\n");
+console.log("\nEscolha uma das alternativas!!!\n\n")
+console.log("1- Listar salários mínimos de 2010 a 2020.");
+console.log("2- Listar o índice IPCA (inflação) de 2010 a 2020.");
+console.log("3- Comparação entre o percentual de aumento salarial e inflação(IPCA).\n");
 
 let userChoice = choice.question('Digite o numero correspondente a sua escolha: ');
 
@@ -43,12 +43,7 @@ let label_salary = 'Salario mínimo:';
 let label_year = 'Ano:';
 let label_inflation = 'Inflação IPCA:';
 
-
-
-
-function choices(number) {
-    number = numberChoice;
-    switch(number) {
+    switch(numberChoice) {
         case 1:
             for(let count = 0; count <= salaryCollection.length-1; count++) {
                 let sayYear1 = salaryCollection[count].year;
@@ -56,6 +51,7 @@ function choices(number) {
                 console.log("\n\n"+label_year.padEnd(25, '.')+sayYear1);
                 console.log(label_salary.padEnd(25, '.')+"R$"+saySalary.toFixed(2).replace(".",","));
             }
+            break
         case 2:
             for(let count = 0; count <= inflationCollection.length-1; count++) {
                 let sayYear2 = inflationCollection[count].year;
@@ -63,8 +59,28 @@ function choices(number) {
                 console.log("\n\n"+label_year.padEnd(25, '.')+sayYear2);
                 console.log(label_inflation.padEnd(25,'.')+sayInflation.toFixed(2).replace(".",",")+"%");
             }
+            break
+        case 3:
+            for(let count = 0; count <= salaryCollection.length-1; count++) {
+                let year3 = salaryCollection[count].year;
+                let salary = salaryCollection[count].salary;
+                if(count > 0) {
+                    let salaryPrevious = salaryCollection[count-1].salary;
+                    let difference = salary - salaryPrevious;
+                    var salaryGrowth = (difference / salaryPrevious) * 100;
+                    var percentageGrowth = salaryGrowth.toFixed(2).replace(".",",")
+                } else {
+                    percentageGrowth = "-"
+                }
+                let ipva = inflationCollection[count].inflation
+                console.log("\n\n"+label_year.padEnd(25, '.')+year3);
+                console.log(label_salary.padEnd(25, '.')+"R$"+salary.toFixed(2).replace(".",","));
+                console.log(label_salaryGrowth.padEnd(25, '.')+percentageGrowth+"%");
+                console.log(label_inflation.padEnd(25,'.')+ipva.toFixed(2).replace(".",",")+"%");
+            }
+            break
+            default:
+                console.log("Opção invalida reinicie o programa!");
+                break
     }
-    return number
-}
-
-choices(numberChoice)
+    
