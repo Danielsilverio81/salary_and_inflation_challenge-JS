@@ -58,7 +58,7 @@ function choices(number) {
             let sayInflation = propertyInfla.inflation;
             let sayYearInfla = propertyInfla.year;
             console.log("\n\n"+label_year2.padEnd(25,'.')+sayYearInfla);
-            console.log(label_inflation.padEnd(25,'.')+sayInflation);
+            console.log(label_inflation.padEnd(25,'.')+sayInflation.toFixed(2).replace(".",",")+"%");
         }
     }
     return number
